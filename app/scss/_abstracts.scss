@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+// Variables
+$font-size: (
+    small: .625rem,
+    medium: 1rem 
+);
+
+$colors-primary: (
+    violet: #674baf,
+    softMagenta: #e882e8
+);
+
+$breakpoints: (
+    small: 40em,
+    medium: 65em,
+    large: 90em
+);
+
+// Mixins
+@mixin mq($key) {
+    $size: map.get($breakpoints, $key);
+
+    @media (min-width: $size) {
+        @content;
+    }
+}
+
+// Functions
+
+// This function for converting from px to the root font-size
+@function rem($pixels, $context: 16 ) {
+    @return ($pixels / $context) * 1rem;
+}
+

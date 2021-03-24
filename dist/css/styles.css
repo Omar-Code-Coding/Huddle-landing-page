@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+body {
+  font-family: "Open sans", sans-serif;
+  font-weight: 400;
+  text-size-adjust: auto;
+  background: center/cover no-repeat url(/images/bg-desktop.svg);
+  background-color: #674baf;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  padding: 0 11.2%;
+}
+
+.container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "header  header" "hero sign-up" "footer footer";
+}
+
+.header-logo {
+  grid-area: header;
+}
+.header-logo > img {
+  width: 12.5rem;
+  height: 3.0625rem;
+}
+
+.hero {
+  grid-area: hero;
+}
+.hero > img {
+  width: 50vw;
+}
+
+.sign-up {
+  grid-area: sign-up;
+}
+
+.attribution {
+  grid-area: footer;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,44 @@
+@use 'abstracts' as *;
+@use 'sass:map';
+
+* { 
+   margin: 0;
+   padding: 0;
+}
+
+*::before,
+*::after {
+   box-sizing: inherit;
+}
+
+html { 
+   box-sizing: border-box;
+   font-size: map.get($font-size, medium); 
+}
+
+body {
+   font-family: 'Open sans', sans-serif;
+   font-weight: 400;
+   text-size-adjust: auto;
+   background: center / cover no-repeat url(/images/bg-desktop.svg);
+   background-color: map.get($colors-primary, violet);
+}
+
+.wrapper {
+   display: flex;
+   // align-items: center;
+   height: 100vh;
+   padding: 0 11.2%;
+}
+
+.container {
+   display: grid;
+   align-items: center;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-areas: "header  header"
+                        "hero sign-up"
+                        "footer footer";
+}
+
+
+
