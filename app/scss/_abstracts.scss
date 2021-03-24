@@ -13,7 +13,7 @@ $colors-primary: (
 
 $breakpoints: (
     small: 40em,
-    medium: 65em,
+    medium: 65em, // 1040px
     large: 90em
 );
 
@@ -21,7 +21,7 @@ $breakpoints: (
 @mixin mq($key) {
     $size: map.get($breakpoints, $key);
 
-    @media (min-width: $size) {
+    @media (max-width: $size) {
         @content;
     }
 }

@@ -17,21 +17,33 @@ body {
   font-family: "Open sans", sans-serif;
   font-weight: 400;
   text-size-adjust: auto;
+  color: white;
   background: center/cover no-repeat url(/images/bg-desktop.svg);
   background-color: #674baf;
 }
 
 .wrapper {
   display: flex;
+  justify-content: center;
   height: 100vh;
-  padding: 0 11.2%;
+  padding: 5vh 6vw;
 }
 
 .container {
   display: grid;
-  align-items: center;
+  align-items: start;
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas: "header  header" "hero sign-up" "footer footer";
+  grid-gap: 0 0.625rem;
+}
+@media (max-width: 65em) {
+  .container {
+    grid-template-areas: "header header" "hero hero" "sign-up sign-up" "footer footer";
+  }
+}
+
+.font-change {
+  font-family: "Poppins", sans-serif;
 }
 
 .header-logo {
@@ -45,12 +57,60 @@ body {
 .hero {
   grid-area: hero;
 }
-.hero > img {
-  width: 50vw;
+.hero__img {
+  width: 100%;
 }
 
 .sign-up {
   grid-area: sign-up;
+  justify-self: center;
+  max-width: 28.5rem;
+  margin-top: 10vh;
+}
+.sign-up__heading {
+  padding-right: 2.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.sign-up__sub-heading {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 1.5625rem 0;
+}
+.sign-up__btn {
+  outline: 0;
+  border: 0;
+  border-radius: 3.125rem;
+  padding: 0.75rem 4.375rem;
+  font-size: 1.125rem;
+  color: #674baf;
+}
+.sign-up__btn:hover {
+  transition: all 0.3s;
+  color: white;
+  background-color: #e882e8;
+}
+
+.social-links {
+  grid-area: sign-up;
+  justify-self: end;
+  align-self: end;
+  margin-bottom: 2vh;
+}
+@media (max-width: 65em) {
+  .social-links {
+    grid-area: footer;
+  }
+}
+.social-links > :nth-child(2) {
+  margin: 0 0.625rem;
+}
+.social-links svg {
+  width: 2.1875rem;
+  height: 2.1875rem;
+  fill: white;
+}
+.social-links svg:hover {
+  fill: #e882e8;
 }
 
 .attribution {

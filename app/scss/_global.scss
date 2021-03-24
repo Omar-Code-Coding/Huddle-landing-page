@@ -20,25 +20,39 @@ body {
    font-family: 'Open sans', sans-serif;
    font-weight: 400;
    text-size-adjust: auto;
+   color: white;
    background: center / cover no-repeat url(/images/bg-desktop.svg);
    background-color: map.get($colors-primary, violet);
 }
 
 .wrapper {
    display: flex;
+   justify-content: center;
    // align-items: center;
    height: 100vh;
-   padding: 0 11.2%;
+   padding: 5vh 6vw;
 }
 
 .container {
    display: grid;
-   align-items: center;
+   align-items: start;
    grid-template-columns: repeat(2, 1fr);
    grid-template-areas: "header  header"
                         "hero sign-up"
                         "footer footer";
+   grid-gap: 0 rem(10);
+
+   @media (max-width: map.get($breakpoints, medium)) {
+      grid-template-areas: "header header"
+                           "hero hero"
+                           "sign-up sign-up"
+                           "footer footer";
+   }
 }
 
+// Helper class
+.font-change {
+   font-family: 'Poppins', sans-serif;
+}
 
 
