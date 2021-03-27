@@ -2,7 +2,7 @@
 
 // Variables
 $font-size: (
-    small: .625rem,
+    small: .875rem,
     medium: 1rem 
 );
 
@@ -18,12 +18,16 @@ $breakpoints: (
 );
 
 // Mixins
-@mixin mq($key) {
+@mixin media-query($key) {
     $size: map.get($breakpoints, $key);
 
     @media (max-width: $size) {
         @content;
     }
+}
+
+@mixin font-adjust($key) {
+    font-size: map.get($font-size, $key);
 }
 
 // Functions

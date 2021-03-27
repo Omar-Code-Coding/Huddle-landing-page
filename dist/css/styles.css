@@ -12,14 +12,24 @@ html {
   box-sizing: border-box;
   font-size: 1rem;
 }
+@media (max-width: 65em) {
+  html {
+    font-size: 0.875rem;
+    text-align: center;
+  }
+}
 
 body {
   font-family: "Open sans", sans-serif;
   font-weight: 400;
   text-size-adjust: auto;
   color: white;
-  background: center/cover no-repeat url(/images/bg-desktop.svg);
-  background-color: #674baf;
+  background: center/cover no-repeat #674baf url(/images/bg-desktop.svg);
+}
+@media (max-width: 65em) {
+  body {
+    background: center/cover no-repeat #674baf url(/images/bg-mobile.svg);
+  }
 }
 
 .wrapper {
@@ -38,7 +48,8 @@ body {
 }
 @media (max-width: 65em) {
   .container {
-    grid-template-areas: "header header" "hero hero" "sign-up sign-up" "footer footer";
+    grid-template-areas: "header ." "hero hero" "sign-up sign-up" "links links" "footer footer";
+    grid-gap: 1.25rem 0;
   }
 }
 
@@ -48,10 +59,16 @@ body {
 
 .header-logo {
   grid-area: header;
+  justify-self: start;
 }
 .header-logo > img {
   width: 12.5rem;
   height: 3.0625rem;
+}
+@media (max-width: 65em) {
+  .header-logo > img {
+    width: 9.375rem;
+  }
 }
 
 .hero {
@@ -64,15 +81,20 @@ body {
 .sign-up {
   grid-area: sign-up;
   justify-self: center;
-  max-width: 28.5rem;
   margin-top: 10vh;
 }
+@media (max-width: 65em) {
+  .sign-up {
+    margin-top: 0;
+  }
+}
 .sign-up__heading {
-  padding-right: 2.5rem;
+  max-width: 25rem;
   font-size: 2rem;
   font-weight: 600;
 }
 .sign-up__sub-heading {
+  max-width: 28.5rem;
   color: rgba(255, 255, 255, 0.7);
   margin: 1.5625rem 0;
 }
@@ -83,10 +105,19 @@ body {
   padding: 0.75rem 4.375rem;
   font-size: 1.125rem;
   color: #674baf;
+  box-shadow: 0.0625rem 0.1875rem 0.4375rem rgba(0, 0, 0, 0.301);
+}
+@media (max-width: 65em) {
+  .sign-up__btn {
+    font-size: 0.9375rem;
+    padding: 0.625rem 5rem;
+  }
 }
 .sign-up__btn:hover {
   transition: all 0.3s;
+  transform: translate(0, -5%);
   color: white;
+  box-shadow: 0.0625rem 0.3125rem 1.25rem rgba(0, 0, 0, 0.5);
   background-color: #e882e8;
 }
 
@@ -98,7 +129,8 @@ body {
 }
 @media (max-width: 65em) {
   .social-links {
-    grid-area: footer;
+    grid-area: links;
+    justify-self: center;
   }
 }
 .social-links > :nth-child(2) {
@@ -115,6 +147,7 @@ body {
 
 .attribution {
   grid-area: footer;
+  font-size: 0.6875rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

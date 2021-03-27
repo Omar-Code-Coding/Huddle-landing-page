@@ -13,7 +13,12 @@
 
 html { 
    box-sizing: border-box;
-   font-size: map.get($font-size, medium); 
+   @include font-adjust(medium);
+
+   @media (max-width: map.get($breakpoints, medium)) {
+      @include font-adjust(small);
+      text-align: center;
+   }
 }
 
 body {
@@ -21,8 +26,12 @@ body {
    font-weight: 400;
    text-size-adjust: auto;
    color: white;
-   background: center / cover no-repeat url(/images/bg-desktop.svg);
-   background-color: map.get($colors-primary, violet);
+   background: center / cover no-repeat map.get($colors-primary, violet) url(/images/bg-desktop.svg);
+   // background-color: map.get($colors-primary, violet);
+
+   @media (max-width: map.get($breakpoints, medium)) {
+      background: center / cover no-repeat map.get($colors-primary, violet) url(/images/bg-mobile.svg);
+   }
 }
 
 .wrapper {
@@ -42,11 +51,16 @@ body {
                         "footer footer";
    grid-gap: 0 rem(10);
 
+   // @include mq() {
+
+   // }
    @media (max-width: map.get($breakpoints, medium)) {
-      grid-template-areas: "header header"
+      grid-template-areas: "header ."
                            "hero hero"
                            "sign-up sign-up"
+                           "links links"
                            "footer footer";
+      grid-gap: rem(20) 0;
    }
 }
 

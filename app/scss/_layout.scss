@@ -1,15 +1,24 @@
 @use 'abstracts' as *;
 @use 'sass:map';
 
+
 .header-logo {
     grid-area: header;
+    justify-self: start;
     // padding-bottom: rem(137);
     > img {
         width: rem(200);
         height: rem(49);
+
+        @media (max-width: map.get($breakpoints, medium)) {
+            width: rem(150);
+        }
     }
 }
 
+
+//////////////////////////////////////////////////////////////////
+///////////// Hero section
 .hero {
     grid-area: hero;
     &__img {
@@ -17,20 +26,29 @@
     }
 }
 
+
+/////////////////////////////////////////////////////////////////
+////////////// Sign-up section
 .sign-up {
     grid-area: sign-up;
     justify-self: center;
-    max-width: rem(456);
     margin-top: 10vh;
+
+    @media (max-width: map.get($breakpoints, medium)) {
+        margin-top: 0;
+    }
     
     &__heading {
-        padding-right: rem(40);
+        max-width: rem(400);
+        // padding: 0 rem(20);
         font-size: rem(32);
         font-weight: 600;
     }
-
+    
     &__sub-heading {
+        max-width: rem(456);
         color: rgba(255, 255, 255, 0.70);
+        // add spacing between sign-up heading and sub-heading
         margin: rem(25) 0;
     }
 
@@ -41,15 +59,26 @@
         padding: rem(12) rem(70);
         font-size: rem(18);
         color: map.get($colors-primary, violet);
+        box-shadow: rem(1) rem(3) rem(7) rgba(0, 0, 0, 0.301);
         
+        @media (max-width: map.get($breakpoints, medium)) {
+            font-size: rem(15);
+            padding: rem(10) rem(80);
+        }
+
         &:hover {
             transition: all .3s;
+            transform: translate(0, -5%);
             color: white;
+            box-shadow: rem(1) rem(5) rem(20) rgba(0, 0, 0, 0.5);
             background-color: map.get($colors-primary, softMagenta);
         }
     }
 }
 
+
+/////////////////////////////////////////////////////////////////
+//////////////  Social media links section
 .social-links {
     grid-area: sign-up;
     justify-self: end;
@@ -57,7 +86,8 @@
     margin-bottom: 2vh;
 
     @media (max-width: map.get($breakpoints, medium)) {
-        grid-area: footer;
+        grid-area: links;
+        justify-self: center;      
     }
 
     > :nth-child(2) {
@@ -77,4 +107,5 @@
 
 .attribution {
     grid-area: footer;
+    font-size: rem(11);
 }
